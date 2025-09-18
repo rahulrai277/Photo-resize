@@ -5,7 +5,7 @@
 const AppData = {
     adminCredentials: {
         username: "admin",
-        password: "admin123"
+        password: "799231"
     },
     tools: [
         {
