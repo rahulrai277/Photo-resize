@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileTools Pro - Image & PDF Manipulation Tools</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="light">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🛠️</span>
+                    <span class="logo-text">FileTools Pro</span>
+                </div>
+                
+                <nav class="nav">
+                    <div class="nav-item dropdown" id="toolsDropdown">
+                        <button class="nav-button">
+                            Tools <span class="dropdown-arrow">▼</span>
+                        </button>
+                        <div class="dropdown-menu" id="toolsMenu">
+                            <a href="#" class="dropdown-item" data-tool="photo-resize">🖼️ Photo Resize</a>
+                            <a href="#" class="dropdown-item" data-tool="compress-image">🗜️ Compress Image</a>
+                            <a href="#" class="dropdown-item" data-tool="fix-photo">🔧 Fix Photo</a>
+                        </div>
+                    </div>
+                    <a href="#faq" class="nav-button">FAQ</a>
+                    <a href="#about" class="nav-button">About</a>
+                    <a href="#contact" class="nav-button">Contact</a>
+                </nav>
+
+                <div class="header-actions">
+                    <div class="theme-switcher">
+                        <button class="theme-button" id="themeButton">🎨</button>
+                        <div class="theme-menu" id="themeMenu">
+                            <button class="theme-option" data-theme="light">☀️ Light</button>
+                            <button class="theme-option" data-theme="dark">🌙 Dark</button>
+                            <button class="theme-option" data-theme="blue">💙 Blue</button>
+                            <button class="theme-option" data-theme="green">💚 Green</button>
+                        </div>
+                    </div>
+                    <button class="admin-button" id="adminButton">Admin</button>
+                </div>
+
+                <button class="mobile-menu-button" id="mobileMenuButton">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Tool Interface -->
+            <section class="tool-interface" id="toolInterface">
+                <div class="tool-header">
+                    <h1 class="tool-title" id="toolTitle">🖼️ Photo Resize</h1>
+                    <p class="tool-description" id="toolDescription">Resize your photos to any dimension while maintaining quality</p>
+                </div>
+
+                <div class="tool-content">
+                    <!-- File Upload Area -->
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-zone" id="uploadZone">
+                            <div class="upload-icon">📁</div>
+                            <h3>Drag & Drop your file here</h3>
+                            <p>or click to select a file</p>
+                            <input type="file" class="file-input" id="fileInput" accept="image/*">
+                            <div class="file-info" id="fileInfo"></div>
+                        </div>
+                        <div class="progress-bar" id="progressBar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                    </div>
+
+                    <!-- Tool Settings -->
+                    <div class="tool-settings" id="toolSettings">
+                        <h3>Settings</h3>
+                        <div id="settingsContent">
+                            <!-- Settings will be dynamically loaded -->
+                        </div>
+                    </div>
+
+                    <!-- Preview Area -->
+                    <div class="preview-area" id="previewArea">
+                        <div class="preview-container">
+                            <h3>Preview</h3>
+                            <div class="preview-content" id="previewContent">
+                                <p>Upload a file to see preview</p>
+                            </div>
+                            <div class="file-size-info" id="fileSizeInfo"></div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons" id="actionButtons">
+                        <button class="btn btn--primary" id="processButton" disabled>Process File</button>
+                        <button class="btn btn--secondary" id="downloadButton" disabled>Download</button>
+                        <button class="btn btn--outline" id="resetButton">Reset</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="faq-section" id="faq">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-list" id="faqList">
+                    <!-- FAQ items will be dynamically loaded -->
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section class="about-section" id="about">
+                <h2>About FileTools Pro</h2>
+                <div class="about-content">
+                    <p>FileTools Pro is a comprehensive suite of file manipulation tools designed to help you resize, compress, and fix your images quickly and efficiently. All processing happens locally in your browser, ensuring your privacy and security.</p>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <h3>🚀 Fast Processing</h3>
+                            <p>Client-side processing for instant results</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>🔒 Secure</h3>
+                            <p>Your files never leave your browser</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>📱 Responsive</h3>
+                            <p>Works on all devices and screen sizes</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>🆓 Free</h3>
+                            <p>All tools are completely free to use</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="contact-section" id="contact">
+                <h2>Contact Us</h2>
+                <div class="contact-content">
+                    <p>Have questions or suggestions? We'd love to hear from you!</p>
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label class="form-label">Name</label>
+                                <input type="text" class="form-control" id="contactName" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" id="contactEmail" placeholder="your.email@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Message</label>
+                                <textarea class="form-control" id="contactMessage" rows="4" placeholder="Your message..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn--primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FileTools Pro</h3>
+                    <p>Professional file manipulation tools for everyone.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links" id="footerLinks">
+                        <!-- Footer links will be dynamically loaded -->
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons" id="socialIcons">
+                        <!-- Social icons will be dynamically loaded -->
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FileTools Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admin Login Modal -->
+    <div class="modal hidden" id="adminModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Admin Login</h3>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="adminLoginForm">
+                    <div class="form-group">
+                        <label class="form-label">Username</label>
+                        <input type="text" class="form-control" id="adminUsername" value="admin" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" id="adminPassword" value="admin123" required>
+                    </div>
+                    <div class="form-group">
+                        <small class="text-muted">Default: admin / admin123</small>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full-width">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div class="admin-dashboard hidden" id="adminDashboard">
+        <div class="admin-header">
+            <h2>Admin Dashboard - Full Access Granted</h2>
+            <button class="btn btn--outline" id="adminLogout">Logout</button>
+        </div>
+        <div class="admin-tabs">
+            <button class="admin-tab active" data-tab="tools">Tools Management</button>
+            <button class="admin-tab" data-tab="faq">FAQ Management</button>
+            <button class="admin-tab" data-tab="settings">Settings</button>
+        </div>
+        <div class="admin-content">
+            <!-- Tools Panel -->
+            <div class="admin-panel active" id="adminTools">
+                <div class="panel-header">
+                    <h3>Manage Tools</h3>
+                    <button class="btn btn--primary" id="addToolButton">Add New Tool</button>
+                </div>
+                <div class="tools-list" id="adminToolsList">
+                    <!-- Tools management will be dynamically loaded -->
+                </div>
+            </div>
+            
+            <!-- FAQ Panel -->
+            <div class="admin-panel" id="adminFaq">
+                <div class="panel-header">
+                    <h3>Manage FAQ</h3>
+                    <button class="btn btn--primary" id="addFaqButton">Add FAQ Item</button>
+                </div>
+                <div class="faq-list" id="adminFaqList">
+                    <!-- FAQ management will be dynamically loaded -->
+                </div>
+            </div>
+            
+            <!-- Settings Panel -->
+            <div class="admin-panel" id="adminSettings">
+                <h3>Website Settings</h3>
+                <div class="settings-form">
+                    <div class="settings-section">
+                        <h4>Navigation Menu</h4>
+                        <div id="menuItemsList">
+                            <!-- Menu items management -->
+                        </div>
+                        <button class="btn btn--sm btn--primary" id="addMenuButton">Add Menu Item</button>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h4>Footer Links</h4>
+                        <div id="footerLinksList">
+                            <!-- Footer links management -->
+                        </div>
+                        <button class="btn btn--sm btn--primary" id="addFooterButton">Add Footer Link</button>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h4>Social Icons</h4>
+                        <div id="socialIconsList">
+                            <!-- Social icons management -->
+                        </div>
+                        <button class="btn btn--sm btn--primary" id="addSocialButton">Add Social Icon</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tool Add/Edit Modal -->
+    <div class="modal hidden" id="toolModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="toolModalTitle">Add New Tool</h3>
+                <button class="modal-close" id="toolModalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="toolForm">
+                    <div class="form-group">
+                        <label class="form-label">Tool Name</label>
+                        <input type="text" class="form-control" id="toolName" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" id="toolDescription" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Icon (emoji)</label>
+                        <input type="text" class="form-control" id="toolIcon" placeholder="🖼️" required>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full-width">Save Tool</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Add/Edit Modal -->
+    <div class="modal hidden" id="faqModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="faqModalTitle">Add FAQ Item</h3>
+                <button class="modal-close" id="faqModalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="faqForm">
+                    <div class="form-group">
+                        <label class="form-label">Question</label>
+                        <input type="text" class="form-control" id="faqQuestion" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Answer</label>
+                        <textarea class="form-control" id="faqAnswer" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full-width">Save FAQ</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner hidden" id="loadingSpinner">
+        <div class="spinner"></div>
+        <p>Processing your file...</p>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
